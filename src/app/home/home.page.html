@@ -13,8 +13,112 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-item mode="ios">
+    <ion-label position="stacked">Open 1st Modal:</ion-label>
+    <ion-input type="text" readonly placeholder="Select Departure Location" (click)="openModal()">
+    </ion-input>
+  </ion-item>
+
+  <ion-item mode="ios">
+    <ion-label position="stacked">Open 1st Modal second Time:</ion-label>
+    <ion-input type="text" readonly placeholder="Select Arrival Location" (click)="openModal()">
+    </ion-input>
+  </ion-item>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <ion-item mode="ios">
+    <ion-label position="stacked">Open 2nd Modal:</ion-label>
+    <ion-input type="text" readonly placeholder="Select 2nd Location" (click)="openSecondModal()">
+    </ion-input>
+  </ion-item>
+
+  <ion-item mode="ios">
+    <ion-label position="stacked">Open 2nd Modal second Time:</ion-label>
+    <ion-input type="text" readonly placeholder="Select 2nd Location" (click)="openSecondModal()">
+    </ion-input>
+  </ion-item>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <ion-item mode="ios">
+    <ion-label position="stacked">Dates:</ion-label>
+    <ion-input type="text" readonly placeholder="Open Calander" (click)="openCalendar()">
+    </ion-input>
+  </ion-item>
+
+<!-- FIRST Modal -->
+  <ion-modal [isOpen]="isOPen" [swipeToClose]="true" [presentingElement]="routerOutlet.nativeEl">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>FIRST MODAL </ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="isOPen = false">
+              <ion-icon name="close-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-searchbar mode="ios" [debounce]="500"></ion-searchbar>
+        <div class="ion-padding airport-list">
+
+          <p>Locations:</p>
+
+          <ion-list>
+            <ion-item (click)="isOPen = false">
+              <ion-icon slot="start" name="location-outline"></ion-icon>
+              <div>
+                <ion-label>Hello</ion-label>
+                <ion-label>World</ion-label>
+              </div>
+            </ion-item>
+          </ion-list>
+
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <!-- SECOND Modal -->
+  <ion-modal [isOpen]="isSecond" [swipeToClose]="true" [presentingElement]="routerOutlet.nativeEl">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>SECOND MODAL</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="isSecond = false">
+              <ion-icon name="close-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-searchbar mode="ios" [debounce]="500"></ion-searchbar>
+        <div class="ion-padding airport-list">
+
+          <p>Locations:</p>
+
+          <ion-list>
+            <ion-item (click)="isOPen = false">
+              <ion-icon slot="start" name="location-outline"></ion-icon>
+              <div>
+                <ion-label>Hello</ion-label>
+                <ion-label>World</ion-label>
+              </div>
+            </ion-item>
+          </ion-list>
+
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  
 </ion-content>
